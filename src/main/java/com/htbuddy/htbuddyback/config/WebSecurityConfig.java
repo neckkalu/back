@@ -30,20 +30,23 @@ public class WebSecurityConfig {
 
   @Bean
   protected SecurityFilterChain configure(HttpSecurity httpSecurity) throws Exception {
+
       httpSecurity
-        .cors().and()
-        .csrf().disable()
-        .httpBasic().disable()
-        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-        .authorizeRequests()
-        .antMatchers("/", "/api/v1/auth/**", "/file/**").permitAll()
-        .antMatchers(HttpMethod.GET, "/api/v1/board/**", "/api/v1/user/*").permitAll()
-        .anyRequest().authenticated().and()
-        .exceptionHandling().authenticationEntryPoint(new FailedAuthenticationEntryPoint());
+              .cors((cors -> cors.and()))
+              .csrf(csrf -> csrf.disable())
+              .httpBasic(basic -> basic.disable())
+              .sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+              .authorizeRequests(requests -> requests
+                      .antMatchers("/", "/api/v1/auth/**", "/api/v1/search/**", "/file/**").permitAll()
+                      .antMatchers(HttpMethod.GET, "/api/v1/board/**").permitAll()
+                      .antMatchers(HttpMethod.GET, "/api/v1/user/*").permitAll()
+                      .anyRequest().authenticated())
+              .exceptionHandling(handling -> handling.authenticationEntryPoint(new FailedAuthenticationEntryPoint()));
 
-      httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+    httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
-      return httpSecurity.build();
+    return httpSecurity.build();
+
   }
 
 }
