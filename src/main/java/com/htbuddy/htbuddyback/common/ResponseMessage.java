@@ -22,6 +22,6 @@ public class ResponseMessage {
   String NO_PERMISSION = "No Permission";
 
   // HTTP Status 500
-  String DATABASE_ERROR = "Database Error"
+  String DATABASE_ERROR = "Database Error";
   
 }
