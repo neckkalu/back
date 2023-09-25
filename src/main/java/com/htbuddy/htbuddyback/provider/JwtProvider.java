@@ -2,11 +2,12 @@ package com.htbuddy.htbuddyback.provider;
 
 import org.springframework.stereotype.Component;
 
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
-
-import io.jsonwebtoken.Jwts;
 
 
 @Component 
@@ -18,7 +19,9 @@ public class JwtProvider {
 
     Date expiredDate = Date.from(Instant.now().plus(1, ChronoUnit.HOURS));
 
-    String jwt = Jwts
+    String jwt = Jwts.builder().signWith(SignatureAlgorithm.HS256, secretKey).setSubject(email).setIssuedAt(new Date()).setExpiration(expiredDate).compact();
+
+    return jwt;
 
   }
 
