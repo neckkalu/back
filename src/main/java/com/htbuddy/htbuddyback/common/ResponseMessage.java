@@ -1,6 +1,6 @@
 package com.htbuddy.htbuddyback.common;
 
-public class ResponseMessage {
+public interface ResponseMessage {
 
   // HTTP Status 200 (성공)
   String SUCCESS = "Success";
