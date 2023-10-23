@@ -1,4 +1,4 @@
-package com.htbuddy.htbuddyback.common;
+package com.htbuddy.htbuddyback.dto.response;
 
 public interface ResponseMessage {
 

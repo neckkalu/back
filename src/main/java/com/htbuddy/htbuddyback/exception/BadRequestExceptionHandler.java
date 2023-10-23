@@ -6,9 +6,9 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.htbuddy.htbuddyback.common.ResponseCode;
-import com.htbuddy.htbuddyback.common.ResponseMessage;
+import com.htbuddy.htbuddyback.dto.response.ResponseCode;
 import com.htbuddy.htbuddyback.dto.response.ResponseDto;
+import com.htbuddy.htbuddyback.dto.response.ResponseMessage;
 
 
 
