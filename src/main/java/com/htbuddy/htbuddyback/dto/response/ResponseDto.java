@@ -3,9 +3,6 @@ package com.htbuddy.htbuddyback.dto.response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import com.htbuddy.htbuddyback.common.ResponseCode;
-import com.htbuddy.htbuddyback.common.ResponseMessage;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

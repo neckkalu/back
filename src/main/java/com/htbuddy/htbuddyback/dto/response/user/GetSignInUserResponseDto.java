@@ -3,9 +3,9 @@ package com.htbuddy.htbuddyback.dto.response.user;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import com.htbuddy.htbuddyback.common.ResponseCode;
-import com.htbuddy.htbuddyback.common.ResponseMessage;
+import com.htbuddy.htbuddyback.dto.response.ResponseCode;
 import com.htbuddy.htbuddyback.dto.response.ResponseDto;
+import com.htbuddy.htbuddyback.dto.response.ResponseMessage;
 import com.htbuddy.htbuddyback.entity.UserEntity;
 
 import lombok.AllArgsConstructor;
@@ -36,4 +36,6 @@ public class GetSignInUserResponseDto extends ResponseDto {
     return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(result);
   }
 
-}
+  }
+
+
