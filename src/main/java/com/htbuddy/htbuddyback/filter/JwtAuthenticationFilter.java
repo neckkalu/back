@@ -40,15 +40,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
           return;
         }
 
-        String email = jwtProvider.validate(token);
+        String emailId = jwtProvider.validate(token);
 
-        if (email == null) {
+        if (emailId == null) {
           filterChain.doFilter(request, response);
           return;
         }
 
         AbstractAuthenticationToken authenticationToken =
-          new UsernamePasswordAuthenticationToken(email, null, AuthorityUtils.NO_AUTHORITIES);
+          new UsernamePasswordAuthenticationToken(emailId, null, AuthorityUtils.NO_AUTHORITIES);
         authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
         SecurityContext securityContext = SecurityContextHolder.createEmptyContext();

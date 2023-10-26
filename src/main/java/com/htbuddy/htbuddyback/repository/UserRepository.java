@@ -11,17 +11,17 @@ import java.util.List;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, String> {
-  boolean existsByEmail(String email);
+  boolean existsByEmailId(String emailId);
   boolean existsByNickname(String nickname);
   boolean existsByTelNumber(String telNumber);
 
-  UserEntity findByEmail(String email);
+  UserEntity findByEmailId(String emailId);
 
   @Query(
     value=
     "SELECT * " +
     "FROM user " +
-    "WHERE email IN ( " +
+    "WHERE email_id IN ( " +
       "SELECT user_email " +
       "FROM favorite " +
       "WHERE board_number = ?1" +

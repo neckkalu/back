@@ -29,7 +29,7 @@ public class UserServiceImplement implements UserService {
 
     try {
       // description: 이메일에 해당하는 유저 조회 //
-      userEntity = userRepository.findByEmail(email);
+      userEntity = userRepository.findByEmailId(email);
 
       // description: 유저 데이터가 존재하는지 확인 //
       if (userEntity == null) return GetUserResponseDto.noExistedUser();
@@ -51,7 +51,7 @@ public class UserServiceImplement implements UserService {
     try {
 
       // description: 이메일로 유저 정보 불러오기 //
-      userEntity = userRepository.findByEmail(email);
+      userEntity = userRepository.findByEmailId(email);
       
       // description: 존재하는 유저인지 확인 //
       if (userEntity == null) return GetSignInUserResponseDto.noExistedUser();
@@ -73,7 +73,7 @@ public class UserServiceImplement implements UserService {
     
     try {
       // description: 존재하는 유저인지 확인 //
-      UserEntity userEntity = userRepository.findByEmail(email);
+      UserEntity userEntity = userRepository.findByEmailId(email);
       if (userEntity == null) return PatchUserNicknameResponseDto.noExistedUser();
 
       // description: 중복되는 닉네임인지 확인 //
@@ -104,7 +104,7 @@ public class UserServiceImplement implements UserService {
     try {
 
       // description: 존재하는 유저인지 확인 //
-      UserEntity userEntity = userRepository.findByEmail(email);
+      UserEntity userEntity = userRepository.findByEmailId(email);
       if (userEntity == null) return PatchUserProfileResponseDto.noExistedUser();
 
       // description: 수정 //
