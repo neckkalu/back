@@ -13,11 +13,11 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name="user")
-@Table(name="user")
+@Entity(name="member")
+@Table(name="member")
 public class UserEntity {
   @Id
-  private String email;
+  private String emailId;
   private String password;
   private String nickname;
   private String telNumber;
@@ -26,7 +26,7 @@ public class UserEntity {
   private String profileImageUrl;
 
   public UserEntity(SignUpRequestDto dto) {
-    this.email = dto.getEmail();
+    this.emailId = dto.getEmail();
     this.password = dto.getPassword();
     this.nickname = dto.getNickname();
     this.telNumber = dto.getTelNumber();

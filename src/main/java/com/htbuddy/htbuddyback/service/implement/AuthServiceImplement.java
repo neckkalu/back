@@ -38,7 +38,7 @@ public class AuthServiceImplement implements AuthService {
 
     try {
       // description: 이메일로 entity 조회 //
-      UserEntity userEntity = userRepository.findByEmail(email);
+      UserEntity userEntity = userRepository.findByEmailId(email);
 
       // description: 존재하지 않는 email 확인 //
       if (userEntity == null) return SignInResponseDto.signInDataMismatch();
@@ -71,7 +71,7 @@ public class AuthServiceImplement implements AuthService {
     try {
 
       // description: 이메일 중복 확인 //
-      boolean hasEmail = userRepository.existsById(email);
+      boolean hasEmail = userRepository.existsByEmailId(email);
       if (hasEmail) return SignUpResponseDto.existedEmail();
 
       // description: 닉네임 중복 확인 //
