@@ -24,20 +24,20 @@ import lombok.NoArgsConstructor;
 public class CommentEntity {
   @Id
   @GeneratedValue(strategy=GenerationType.IDENTITY)
-  private int commentNumber;
-  private int boardNumber;
-  private String userEmail;
-  private String contents;
-  private String writeDatetime;
+  private int comment_ID;
+  private int board_Id;
+  private String email_Id;
+  private String content;
+  private String creation_Date;
 
   public CommentEntity(Integer boardNumber, String userEmail, PostCommentRequestDto dto) {
     Date now = Date.from(Instant.now());
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     String writeDatetime = simpleDateFormat.format(now);
 
-    this.boardNumber = boardNumber;
-    this.userEmail = userEmail;
-    this.contents = dto.getContents();
-    this.writeDatetime = writeDatetime;
+    this.board_Id = boardNumber;
+    this.email_Id = userEmail;
+    this.content = dto.getContents();
+    this.creation_Date = writeDatetime;
   }
 }

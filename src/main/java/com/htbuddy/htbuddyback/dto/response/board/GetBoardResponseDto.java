@@ -18,7 +18,7 @@ public class GetBoardResponseDto extends ResponseDto {
   private String title;
   private String contents;
   private String imageUrl;
-  private String writeDatetime;
+  private String creationDate;
   private String writerEmail;
   private String writerNickname;
   private String writerProfileImage;
@@ -29,7 +29,7 @@ public class GetBoardResponseDto extends ResponseDto {
     this.writerEmail = boardViewEntity.getEmailId();
     this.title = boardViewEntity.getTitle();
     this.contents = boardViewEntity.getContent();
-    this.writeDatetime = boardViewEntity.getCreationDate();
+    this.creationDate = boardViewEntity.getCreationDate();
   }
 
   public static ResponseEntity<GetBoardResponseDto> success(BoardViewEntity boardViewEntity) {
